@@ -8,6 +8,7 @@
         @yield('title')
     </title>
     <meta name="description" content="">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
@@ -27,7 +28,6 @@
     <link rel="stylesheet" href="{{ asset('docmed/css/slicknav.css') }}">
     <link rel="stylesheet" href="{{ asset('docmed/css/style.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('docmed/css/responsive.css') }}"> --}}
-
     @yield('css')
 </head>
 
