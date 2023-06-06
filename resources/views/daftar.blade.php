@@ -2,8 +2,7 @@
 @section('title', 'SIRAMAH-RS Waled')
 
 @section('content')
-    <!-- bradcam_area_start  -->
-    <div class="bradcam_area breadcam_bg bradcam_overlay">
+    {{-- <div class="bradcam_area breadcam_bg bradcam_overlay">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -14,17 +13,17 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- bradcam_area_end  -->
+    </div> --}}
     <section class="contact-section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h2 class="contact-title">Formulir Pendaftaran</h2>
                     <p>Silahkan isi formulir dibawah ini :</p>
+
                 </div>
                 <div class="col-md-8">
-                    <form>
+                    <form id="formDaftarWeb" name="formDaftarWeb">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -78,21 +77,27 @@
                                     <label for="jenispasien">
                                         <b>Poliklinik</b>
                                     </label>
-                                    <select class="single-input form-control mb-3">
+                                    <select class="single-input form-control mb-3" name="kodepoli" id="kodepoli">
                                         <option selected disabled>Pilih Poliklinik</option>
+                                        {{-- @foreach ($polikliniks as $poli)
+                                            <option value="{{ $poli->kodesubspesialis }}">{{ $poli->namasubspesialis }}
+                                            </option>
+                                        @endforeach --}}
                                     </select>
                                 </div>
                                 <div class="form-group formTanggalPeriksa">
                                     <label for="tanggalperiksa">
                                         <b>Tanggal Periksa</b>
                                     </label>
-                                    <input id="datepicker" class="single-input form-control mb-3" placeholder="Pick date">
+                                    <input id="tanggalperiksa" name="tanggalperiksa"
+                                        class="single-input datepicker form-control mb-3" placeholder="Pick date">
                                 </div>
                                 <div class="form-group formJenisKunjungan">
                                     <label for="jeniskunjungan">
                                         <b>Jenis Kunjungan</b>
                                     </label>
-                                    <select class="single-input form-control mb-3">
+                                    <select name="jeniskunjungan" id="jeniskunjungan"
+                                        class="single-input form-control mb-3">
                                         <option selected disabled>Pilih Jenis Kunjungan</option>
                                         <option value="1">Rujukan FKTP</option>
                                         <option value="3">Surat Kontrol</option>
@@ -103,7 +108,7 @@
                                     <label for="jenispasien">
                                         <b>No. Rujukan / Surat Kontrol</b>
                                     </label>
-                                    <select class="single-input form-control mb-3">
+                                    <select class="single-input form-control mb-3" id="nomorreferensi" name="nomorreferensi">
                                         <option selected disabled>Pilih Nomor Referensi</option>
                                     </select>
                                 </div>
@@ -111,20 +116,22 @@
                                     <label for="jenispasien">
                                         <b>Jadwal Dokter</b>
                                     </label>
-                                    <select class="single-input form-control mb-3">
+                                    <select name="kodedokter" id="kodedokter" class="single-input form-control mb-3">
                                         <option selected disabled>Pilih Jadwal Dokter</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group mt-3">
-                            <div class="genric-btn warning circle cekPasien"><i class="ti-search"></i> Cek Pasien</div>
+                        <div class="form-group mt-2 mb-5">
+                            <div class="genric-btn warning circle cekPasien"><i class="ti-search"></i> Cek Pasien
+                            </div>
                             <div class="genric-btn info circle btnDaftar"><i class="ti-plus"></i> Daftar</div>
                             <div class="genric-btn warning circle cekJadwalPoli"><i class="ti-search"></i> Cek Jadwal</div>
                             <div class="genric-btn warning circle cekNomorReferensi"><i class="ti-search"></i> Cek Rujukan /
                                 Srt. Kontrol
                             </div>
-                            <div class="genric-btn danger circle"><i class="ti-reload"></i> Reset Formulir</div>
+                            <a class="genric-btn danger circle preloader" href="{{ route('daftar') }}"><i
+                                    class="ti-reload"></i> Reset Formulir</a>
                         </div>
                     </form>
                 </div>
@@ -132,22 +139,22 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-home"></i></span>
                         <div class="media-body">
-                            <h3>Buttonwood, California.</h3>
-                            <p>Rosemead, CA 91770</p>
+                            <h3>RSUD Waled Kab. Cirebon</h3>
+                            <p>Jl. Prabu Kiansantang No.4, Kec. Waled, Kab. Cirebon, Jawa Barat 45187</p>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                         <div class="media-body">
-                            <h3>+1 253 565 2365</h3>
-                            <p>Mon to Fri 9am to 6pm</p>
+                            <h3>0898-3311-118</h3>
+                            <p>Humas RSUD Waled</p>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
-                            <h3>support@colorlib.com</h3>
-                            <p>Send us your query anytime!</p>
+                            <h3>brsud.waled@gmail.com</h3>
+                            <p>Email RSUD Waled</p>
                         </div>
                     </div>
                 </div>
@@ -167,8 +174,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
     <script>
         $(function() {
-            $("#tanggalperiksa").datepicker({
-                dateFormat: "yy-mm-dd"
+            $(".withLoad").click(function() {
+                $.LoadingOverlay("show");
             });
             $(".formPasien").hide();
             $(".formJenispasien").hide();
@@ -177,13 +184,11 @@
             $(".formJenisKunjungan").hide();
             $(".formNomorReferensi").hide();
             $(".formDokter").hide();
-
             $(".btnDaftar").hide();
             $(".cekJadwalPoli").hide();
             $(".cekNomorReferensi").hide();
-
             $(".cekPasien").on("click", function() {
-                $("body").append("<div id='preloader'></div>");
+                $.LoadingOverlay("show");
                 var nik = $('#nik').val();
                 var url = "http://103.158.96.141/siramah/api/cekPasien?nik=" + nik;
                 $.ajax({
@@ -200,6 +205,39 @@
                             $("#norm").val(pasien.no_rm);
                             $("#namapasien").val(pasien.nama_px);
                             $("#nohp").val(pasien.no_hp);
+                            $("#nik").prop("readonly", true);
+                            var url = "http://sim.rsudwaled.id/siramah/api/poliklinik_aktif";
+                            $.ajax({
+                                url: url,
+                                type: "GET",
+                                dataType: 'json',
+                                success: function(data) {
+                                    if (data.metadata.code == 200) {
+                                        var polikliniks = data.response;
+                                        polikliniks.forEach(element => {
+                                            $('#kodepoli').append($(
+                                                '<option>', {
+                                                    value: element
+                                                        .kodesubspesialis,
+                                                    text: element
+                                                        .namasubspesialis
+                                                }));
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Maaf',
+                                            text: data.metadata.message,
+                                            icon: 'error',
+                                            confirmButtonText: 'Tutup'
+                                        });
+                                    }
+                                    $.LoadingOverlay("hide");
+                                },
+                                error: function(data) {
+                                    alert('Error');
+                                    $.LoadingOverlay("hide");
+                                },
+                            });
                             Swal.fire({
                                 title: 'Berhasil',
                                 text: 'Data pasien ditemukan atas nama ' + pasien
@@ -215,11 +253,11 @@
                                 confirmButtonText: 'Tutup'
                             });
                         }
-                        $("#preloader").remove();
+                        $.LoadingOverlay("hide");
                     },
                     error: function(data) {
                         alert('Error');
-                        $("#preloader").remove();
+                        $.LoadingOverlay("hide");
                     },
                 });
             });
@@ -240,8 +278,8 @@
                 }
             });
             // umum
-            $("#cekJadwalPoli").on("click", function() {
-                $("body").append("<div id='preloader'></div>");
+            $(".cekJadwalPoli").on("click", function() {
+                $.LoadingOverlay("show");
                 var kodepoli = $('#kodepoli').val();
                 var tanggal = $('#tanggalperiksa').val();
                 var url = "http://103.158.96.141/siramah/api/cekJadwalPoli";
@@ -261,7 +299,7 @@
                         if (data.metadata.code == 200) {
                             var jadwal = data.response;
                             $(".formDokter").show();
-                            $("#btnDaftar").show();
+                            $(".btnDaftar").show();
                             jadwal.forEach(element => {
                                 $('#kodedokter').append($('<option>', {
                                     value: element.kodedokter,
@@ -283,19 +321,18 @@
                                 confirmButtonText: 'Tutup'
                             });
                         }
-                        $("#preloader").remove();
+                        $.LoadingOverlay("hide");
 
                     },
                     error: function(data) {
-                        console.log(data);
                         alert('Error');
-                        $("#preloader").remove();
+                        $.LoadingOverlay("hide");
                     },
                 });
             });
             // jkn
-            $("#cekNomorReferensi").on("click", function() {
-                $("body").append("<div id='preloader'></div>");
+            $(".cekNomorReferensi").on("click", function() {
+                $.LoadingOverlay("show");
                 var jeniskunjungan = $('#jeniskunjungan').val();
                 var tanggal = $('#tanggalperiksa').val();
                 var nomorkartu = $('#nomorkartu').val();
@@ -314,11 +351,9 @@
                             type: "GET",
                             dataType: 'json',
                             success: function(data) {
-                                console.log(data);
                                 if (data.metadata.code == 200) {
                                     var rujukans = data.response;
                                     rujukans.forEach(element => {
-                                        console.log(element);
                                         $('#nomorreferensi').append('<option value="' +
                                             element.noKunjungan +
                                             '" data-kodepoli="' + element
@@ -327,21 +362,24 @@
                                             .poliRujukan.nama + '</option>');
                                     });
                                     $(".formNomorReferensi").show();
-                                    $("#cekNomorReferensi").hide();
+                                    $(".cekNomorReferensi").hide();
                                 } else {
-                                    alert(data.metadata.message);
+                                    Swal.fire({
+                                        title: 'Maaf',
+                                        text: data.metadata.message,
+                                        icon: 'error',
+                                        confirmButtonText: 'Tutup'
+                                    });
                                 }
-                                $("#preloader").remove();
+                                $.LoadingOverlay("hide");
                             },
                             error: function(data) {
-                                console.log(data);
                                 alert('Error');
-                                $("#preloader").remove();
+                                $.LoadingOverlay("hide");
 
                             },
                         });
                         break;
-
                     case '4':
                         var data = {
                             nomorkartu: nomorkartu,
@@ -356,11 +394,9 @@
                             type: "GET",
                             dataType: 'json',
                             success: function(data) {
-                                console.log(data);
                                 if (data.metadata.code == 200) {
                                     var rujukans = data.response;
                                     rujukans.forEach(element => {
-                                        console.log(element);
                                         $('#nomorreferensi').append('<option value="' +
                                             element.noKunjungan +
                                             '" data-kodepoli="' + element
@@ -369,23 +405,27 @@
                                             .poliRujukan.nama + '</option>');
                                     });
                                     $(".formNomorReferensi").show();
-                                    $("#cekNomorReferensi").hide();
+                                    $(".cekNomorReferensi").hide();
                                 } else {
-                                    alert(data.metadata.message);
+                                    Swal.fire({
+                                        title: 'Maaf',
+                                        text: data.metadata.message,
+                                        icon: 'error',
+                                        confirmButtonText: 'Tutup'
+                                    });
                                 }
-                                $("#preloader").remove();
+                                $.LoadingOverlay("hide");
                             },
                             error: function(data) {
-                                console.log(data);
                                 alert('Error');
-                                $("#preloader").remove();
+                                $.LoadingOverlay("hide");
                             },
                         });
                         break;
 
                     default:
                         alert('Silahkan pilih jenis kunjungan');
-                        $("#preloader").remove();
+                        $.LoadingOverlay("hide");
                         break;
                 }
             });
@@ -393,10 +433,10 @@
                 var kodepoli = $(this).find(':selected').attr('data-kodepoli');
                 $(".formPoliklinik").show();
                 $("#kodepoli").val(kodepoli).change();
-                $("#cekJadwalPoli").show();
+                $(".cekJadwalPoli").show();
             });
-            $("#btnDaftar").on("click", function() {
-                $("body").append("<div id='preloader'></div>");
+            $(".btnDaftar").on("click", function() {
+                $.LoadingOverlay("show");
                 var url = "http://103.158.96.141/siramah/api/ambilAntrianWeb";
                 var data = $('#formDaftarWeb').serialize();
                 $.ajax({
@@ -405,9 +445,7 @@
                     type: "GET",
                     dataType: 'json',
                     success: function(data) {
-                        console.log(data);
                         if (data.metadata.code == 200) {
-                            console.log(data);
                             Swal.fire({
                                 title: 'Success',
                                 text: 'Berhasil booking pendaftaran online',
@@ -434,16 +472,14 @@
                                 confirmButtonText: 'Tutup'
                             });
                         }
-                        $("#preloader").remove();
+                        $.LoadingOverlay("hide");
                     },
                     error: function(data) {
-                        console.log(data);
                         alert('Error');
-                        $("#preloader").remove();
+                        $.LoadingOverlay("hide");
                     },
                 });
             });
         });
     </script>
-
 @endsection

@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/daftar', [AntrianController::class, 'daftar'])->name('daftar');
+Route::get('/check_antrian', [AntrianController::class, 'check_antrian'])->name('check_antrian');

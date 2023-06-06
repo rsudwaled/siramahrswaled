@@ -41,6 +41,7 @@
     <!-- JS here -->
     <script src="{{ asset('docmed/js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <script src="{{ asset('docmed/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('loading-overlay/loadingoverlay.min.js') }}"></script>
     <script src="{{ asset('docmed/js/popper.min.js') }}"></script>
     <script src="{{ asset('docmed/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('docmed/js/owl.carousel.min.js') }}"></script>
@@ -66,18 +67,23 @@
 
     <script src="{{ asset('docmed/js/main.js') }}"></script>
     <script>
-        $('#datepicker').datepicker({
+        $('.datepicker').datepicker({
             iconsLibrary: 'fontawesome',
+            format: "yyyy-mm-dd",
             icons: {
                 rightIcon: '<span class="fa fa-caret-down"></span>'
             }
         });
-        $('#datepicker2').datepicker({
+        $('.datepicker2').datepicker({
+            format: "yyyy-mm-dd",
             iconsLibrary: 'fontawesome',
             icons: {
                 rightIcon: '<span class="fa fa-caret-down"></span>'
             }
 
+        });
+        $(".preloader").click(function() {
+            $.LoadingOverlay("show");
         });
         // $(document).ready(function() {
         //     $('.js-example-basic-multiple').select2();

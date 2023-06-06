@@ -71,9 +71,10 @@
                                 Address
                             </h3>
                             <p>
-                                200, D-block, Green lane USA <br>
-                                +10 367 467 8934 <br>
-                                docmed@contact.com
+                                Jl. Prabu Kiansantang No.4, Kec. Waled, Kab. Cirebon, Jawa Barat 45187
+                                <br><br>
+                                0898-3311-118
+                                brsud.waled@gmail.com
                             </p>
                         </div>
                     </div>
