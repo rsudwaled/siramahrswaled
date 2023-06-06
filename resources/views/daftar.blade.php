@@ -185,7 +185,7 @@
             $(".cekPasien").on("click", function() {
                 $("body").append("<div id='preloader'></div>");
                 var nik = $('#nik').val();
-                var url = "http://sim.rsudwaled.id/siramah/api/cekPasien?nik=" + nik;
+                var url = "http://103.158.96.141/siramah/api/cekPasien?nik=" + nik;
                 $.ajax({
                     url: url,
                     type: "GET",
@@ -244,7 +244,7 @@
                 $("body").append("<div id='preloader'></div>");
                 var kodepoli = $('#kodepoli').val();
                 var tanggal = $('#tanggalperiksa').val();
-                var url = "http://sim.rsudwaled.id/siramah/api/cekJadwalPoli";
+                var url = "http://103.158.96.141/siramah/api/cekJadwalPoli";
                 var data = {
                     kodepoli: kodepoli,
                     tanggal: tanggal,
@@ -306,7 +306,7 @@
                             tanggal: tanggal,
                         };
                         $.ajax({
-                            url: "http://sim.rsudwaled.id/siramah/api/cekRujukanPeserta",
+                            url: "http://103.158.96.141/siramah/api/cekRujukanPeserta",
                             data: {
                                 nomorkartu: nomorkartu,
                                 tanggal: tanggal,
@@ -348,7 +348,7 @@
                             tanggal: tanggal,
                         };
                         $.ajax({
-                            url: "http://sim.rsudwaled.id/siramah/api/cekRujukanRSPeserta",
+                            url: "http://103.158.96.141/siramah/api/cekRujukanRSPeserta",
                             data: {
                                 nomorkartu: nomorkartu,
                                 tanggal: tanggal,
@@ -397,7 +397,7 @@
             });
             $("#btnDaftar").on("click", function() {
                 $("body").append("<div id='preloader'></div>");
-                var url = "http://sim.rsudwaled.id/siramah/api/ambilAntrianWeb";
+                var url = "http://103.158.96.141/siramah/api/ambilAntrianWeb";
                 var data = $('#formDaftarWeb').serialize();
                 $.ajax({
                     url: url,
@@ -415,7 +415,7 @@
                                 confirmButtonText: 'Ok'
                             }).then((result) => {
                                 window.location.href =
-                                    "http://sim.rsudwaled.id/siramah/api/checkAntrian?kodebooking=" +
+                                    "http://103.158.96.141/siramah/api/checkAntrian?kodebooking=" +
                                     data
                                     .response.kodebooking;
                             })
