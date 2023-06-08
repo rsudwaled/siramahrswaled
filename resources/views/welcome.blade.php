@@ -12,9 +12,8 @@
                             <div class="slider_text ">
                                 <h3> <span>Daftar Rawat Jalan</span> <br>
                                     RSUD Waled </h3>
-                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
-                                    healthcare service provider to consistently.</p>
-                                <a href="{{ route('daftar') }}" class="boxed-btn3">Daftar</a>
+                                <p>Kini di RSUD Waled dapat mendaftar antrian untuk pasien rawat jalan secara online.</p>
+                                <a href="{{ route('daftar') }}" class="boxed-btn3">Daftar Online</a>
                             </div>
                         </div>
                     </div>
@@ -27,8 +26,11 @@
                             <div class="slider_text ">
                                 <h3> <span>Check Antrian</span> <br>
                                     RSUD Waled </h3>
-                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
-                                    healthcare service provider to consistently.</p>
+                                <p>
+                                    Jika anda sudanh memiliki kode booking antrian ,silahkan cek status antrian anda.
+                                    <br>
+                                    Anda juga bisa membatalkan antrian dengan klik tombol dibawah ini.
+                                </p>
                                 <a href="{{ route('check_antrian') }}" class="boxed-btn3">Check Antrian</a>
                             </div>
                         </div>
@@ -42,9 +44,12 @@
                             <div class="slider_text ">
                                 <h3> <span>Surat Kontrol Online</span> <br>
                                     RSUD Waled</h3>
-                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
-                                    healthcare service provider to consistently.</p>
-                                <a href="#" class="boxed-btn3">Check Our Services</a>
+                                <p>
+                                    Bagi pasien yang telah memiliki surat kontrol online, silahkan cek disni.
+                                    <br>
+                                    Anda juga dapat mengajukan perubahan jadwal kontrol anda yang telah terlewat.
+                                </p>
+                                <a href="#" class="boxed-btn3">Surat Kontrol Online</a>
                             </div>
                         </div>
                     </div>
@@ -53,7 +58,6 @@
         </div>
     </div>
     <!-- slider_area_end -->
-
     <!-- service_area_start -->
     <div class="service_area">
         <div class="container p-0">
@@ -63,9 +67,9 @@
                         <div class="icon">
                             <i class="flaticon-electrocardiogram"></i>
                         </div>
-                        <h3>Hospitality</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
-                        <a href="#" class="boxed-btn3-white">Apply For a Bed</a>
+                        <h3>Antrian Online</h3>
+                        <p>Memudahkan pasien untuk mendaftar rawat jalan.</p>
+                        <a href="{{ route('daftar') }}" class="boxed-btn3-white">Daftar Online</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-4">
@@ -73,8 +77,8 @@
                         <div class="icon">
                             <i class="flaticon-emergency-call"></i>
                         </div>
-                        <h3>Emergency Care</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
+                        <h3>IGD 24 Jam</h3>
+                        <p>Layanan Instalasi Gawat Darurat siap sedia 24 jam</p>
                         <a href="#" class="boxed-btn3-white">+10 672 356 3567</a>
                     </div>
                 </div>
@@ -83,11 +87,13 @@
                         <div class="icon">
                             <i class="flaticon-first-aid-kit"></i>
                         </div>
-                        <h3>Chamber Service</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
-                        <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                        <h3>Rawat Jalan</h3>
+                        <p>Tersedia beberapa poliklinik untuk pasien rawat jalan.</p>
+                        <a href="#" class="boxed-btn3-white">Jadwal Rawat Jalan</a>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -392,7 +398,6 @@
     </div>
     <!-- business_expert_area_end  -->
 
-
     <!-- expert_doctors_area_start -->
     <div class="expert_doctors_area">
         <div class="container">
@@ -475,8 +480,8 @@
                     <div
                         class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
                         <div class="info">
-                            <h3>For Any Emergency Contact</h3>
-                            <p>Esteem spirit temper too say adieus.</p>
+                            <h3>Kontak Layanan IGD</h3>
+                            <p>Silahkan hubungi kami.</p>
                         </div>
                         <div class="info_button">
                             <a href="#" class="boxed-btn3-white">+10 378 4673 467</a>
@@ -487,11 +492,11 @@
                     <div
                         class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
                         <div class="info">
-                            <h3>Make an Online Appointment</h3>
-                            <p>Esteem spirit temper too say adieus.</p>
+                            <h3>Daftar Online</h3>
+                            <p>Layanan daftar online rawat jalan.</p>
                         </div>
                         <div class="info_button">
-                            <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                            <a href="#" class="boxed-btn3-white">Daftar</a>
                         </div>
                     </div>
                 </div>
@@ -499,53 +504,4 @@
         </div>
     </div>
     <!-- Emergency_contact end -->
-
-
-    <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
-        <div class="popup_box ">
-            <div class="popup_inner">
-                <h3>Make an Appointment</h3>
-                <form action="#">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <input id="datepicker" placeholder="Pick date">
-                        </div>
-                        <div class="col-xl-6">
-                            <input id="datepicker2" placeholder="Suitable time">
-                        </div>
-                        <div class="col-xl-6">
-                            <select class="form-select wide" id="default-select" class="">
-                                <option data-display="Select Department">Department</option>
-                                <option value="1">Eye Care</option>
-                                <option value="2">Physical Therapy</option>
-                                <option value="3">Dental Care</option>
-                            </select>
-                        </div>
-                        <div class="col-xl-6">
-                            <select class="form-select wide" id="default-select" class="">
-                                <option data-display="Doctors">Doctors</option>
-                                <option value="1">Mirazul Alom</option>
-                                <option value="2">Monzul Alom</option>
-                                <option value="3">Azizul Isalm</option>
-                            </select>
-                        </div>
-                        <div class="col-xl-6">
-                            <input type="text" placeholder="Name">
-                        </div>
-                        <div class="col-xl-6">
-                            <input type="text" placeholder="Phone no.">
-                        </div>
-                        <div class="col-xl-12">
-                            <input type="email" placeholder="Email">
-                        </div>
-                        <div class="col-xl-12">
-                            <button type="submit" class="boxed-btn3">Confirm</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </form>
-    <!-- form itself end -->
 @endsection

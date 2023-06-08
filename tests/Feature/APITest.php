@@ -32,4 +32,44 @@ class APITest extends TestCase
         $response = $this->get(route('cari_jadwal_dokter'));
         $response->assertStatus(200);
     }
+        /**
+     * @test
+     */
+    public function ambil_antrian(): void
+    {
+        $response = $this->get(route('ambil_antrian'));
+        $response->assertStatus(200);
+    }
+        /**
+     * @test
+     */
+    public function batal_antrian(): void
+    {
+        $response = $this->get(route('batal_antrian'));
+        $response->assertStatus(200);
+    }
+        /**
+     * @test
+     */
+    public function rujukan_peserta(): void
+    {
+        $response = $this->get(route('rujukan_peserta'));
+        $response->assertStatus(200);
+    }
+        /**
+     * @test
+     */
+    public function rujukan_rs_peserta(): void
+    {
+        $response = $this->get(route('rujukan_rs_peserta'));
+        $response->assertStatus(200);
+    }
+            /**
+     * @test
+     */
+    public function suratkontrol_peserta(): void
+    {
+        $response = $this->get(route('suratkontrol_peserta'));
+        $response->assertStatus(200);
+    }
 }

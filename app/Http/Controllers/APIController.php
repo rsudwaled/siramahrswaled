@@ -49,23 +49,26 @@ class APIController extends Controller
         $url = $this->baseurl . 'vclaim/rujukan_peserta';
         $res = Http::get($url, $request->all());
         $res  = (json_decode($res));
-        $rujukanx = $res->response->rujukan;
-        foreach ($rujukanx as $item) {
-            if (Carbon::parse($item->tglKunjungan)->diffInDays(now()) < 90) {
-                $rujukans[] = $item;
+        $code = $res->metadata->code;
+        if ($code == 200) {
+            $rujukanx = $res->response->rujukan;
+            foreach ($rujukanx as $item) {
+                if (Carbon::parse($item->tglKunjungan)->diffInDays(now()) < 90) {
+                    $rujukans[] = $item;
+                }
             }
-        }
-        if ($rujukans) {
-            $response = [
-                'response' => $rujukans,
-                'metadata' => [
-                    'message' => 'OK',
-                    'code' => 200,
-                ],
-            ];
-            return json_decode(json_encode($response));
+            if ($rujukans) {
+                $response = [
+                    'response' => $rujukans,
+                    'metadata' => [
+                        'message' => 'OK',
+                        'code' => 200,
+                    ],
+                ];
+                return json_decode(json_encode($response));
+            }
         } else {
-            return json_decode($res);
+            return $res;
         }
     }
     public function rujukan_rs_peserta(Request $request)
@@ -73,28 +76,31 @@ class APIController extends Controller
         $url = $this->baseurl . 'vclaim/rujukan_rs_peserta';
         $res = Http::get($url, $request->all());
         $res  = (json_decode($res));
-        $rujukanx = $res->response->rujukan;
-        foreach ($rujukanx as $item) {
-            if (Carbon::parse($item->tglKunjungan)->diffInDays(now()) < 90) {
-                $rujukans[] = $item;
+        $code = $res->metadata->code;
+        if ($code == 200) {
+            $rujukanx = $res->response->rujukan;
+            foreach ($rujukanx as $item) {
+                if (Carbon::parse($item->tglKunjungan)->diffInDays(now()) < 90) {
+                    $rujukans[] = $item;
+                }
             }
-        }
-        if ($rujukans) {
-            $response = [
-                'response' => $rujukans,
-                'metadata' => [
-                    'message' => 'OK',
-                    'code' => 200,
-                ],
-            ];
-            return json_decode(json_encode($response));
+            if ($rujukans) {
+                $response = [
+                    'response' => $rujukans,
+                    'metadata' => [
+                        'message' => 'OK',
+                        'code' => 200,
+                    ],
+                ];
+                return json_decode(json_encode($response));
+            }
         } else {
-            return json_decode($res);
+            return $res;
         }
     }
     public function suratkontrol_peserta(Request $request)
     {
-        $url = $this->baseurl . 'vclaim/batal_antrian';
+        $url = $this->baseurl . 'vclaim/suratkontrol_peserta';
         $res = Http::get($url, $request->all());
         return json_decode($res);
     }

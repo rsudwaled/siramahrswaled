@@ -20,7 +20,6 @@
                 <div class="col-12">
                     <h2 class="contact-title">Formulir Pendaftaran</h2>
                     <p>Silahkan isi formulir dibawah ini :</p>
-
                 </div>
                 <div class="col-md-8">
                     <form id="formDaftarWeb" name="formDaftarWeb">
@@ -392,10 +391,6 @@
                         });
                         break;
                     case '3':
-                        var data = {
-                            nomorkartu: nomorkartu,
-                            tanggal: tanggal,
-                        };
                         $.ajax({
                             url: "{{ route('suratkontrol_peserta') }}",
                             data: {
@@ -405,8 +400,9 @@
                             type: "GET",
                             dataType: 'json',
                             success: function(data) {
+                                console.log(data);
                                 if (data.metadata.code == 200) {
-                                    var suratkontrols = data.response;
+                                    var suratkontrols = data.response.list;
                                     suratkontrols.forEach(element => {
                                         $('#nomorreferensi').append('<option value="' +
                                             element.noSuratKontrol +
@@ -428,6 +424,8 @@
                                 $.LoadingOverlay("hide");
                             },
                             error: function(data) {
+                                console.log(data);
+
                                 alert('Error');
                                 $.LoadingOverlay("hide");
 
