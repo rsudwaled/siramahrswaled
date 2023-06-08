@@ -7,8 +7,9 @@
     <title>
         @yield('title')
     </title>
-    <meta name="description" content="">
+    <meta name="description" content="SIRAMAH-RS Waled adalah aplikasi layanan web service untuk memudahkan informasi bagi pasien dan pendaftaran antrian melalui online">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="RSUD Waled, RS Waled, Daftar RS, Daftar RSUD Waled, Daftar Online">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('rsudwaled/rswaledico.png') }}">
