@@ -64,6 +64,7 @@
     <script src="{{ asset('docmed/js/jquery.form.js') }}"></script>
     <script src="{{ asset('docmed/js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('docmed/js/mail-script.js') }}"></script>
+    @include('sweetalert::alert')
 
     <script src="{{ asset('docmed/js/main.js') }}"></script>
     <script>

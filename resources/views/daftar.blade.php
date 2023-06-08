@@ -1,5 +1,5 @@
 @extends('vendor.docmed.master')
-@section('title', 'SIRAMAH-RS Waled')
+@section('title', 'Daftar Antrian')
 
 @section('content')
     {{-- <div class="bradcam_area breadcam_bg bradcam_overlay">
@@ -108,7 +108,8 @@
                                     <label for="jenispasien">
                                         <b>No. Rujukan / Surat Kontrol</b>
                                     </label>
-                                    <select class="single-input form-control mb-3" id="nomorreferensi" name="nomorreferensi">
+                                    <select class="single-input form-control mb-3" id="nomorreferensi"
+                                        name="nomorreferensi">
                                         <option selected disabled>Pilih Nomor Referensi</option>
                                     </select>
                                 </div>
@@ -204,7 +205,7 @@
                             $("#nomorkartu").val(pasien.no_Bpjs);
                             $("#norm").val(pasien.no_rm);
                             $("#namapasien").val(pasien.nama_px);
-                            $("#nohp").val(pasien.no_hp);
+                            // $("#nohp").val(pasien.no_hp);
                             $("#nik").prop("readonly", true);
                             var url = "http://sim.rsudwaled.id/siramah/api/poliklinik_aktif";
                             $.ajax({
@@ -360,6 +361,52 @@
                                             .poliRujukan.kode + '" >' + element
                                             .noKunjungan + ' POLI ' + element
                                             .poliRujukan.nama + '</option>');
+                                    });
+                                    $(".formNomorReferensi").show();
+                                    $(".cekNomorReferensi").hide();
+                                } else {
+                                    Swal.fire({
+                                        title: 'Maaf',
+                                        text: data.metadata.message,
+                                        icon: 'error',
+                                        confirmButtonText: 'Tutup'
+                                    });
+                                }
+                                $.LoadingOverlay("hide");
+                            },
+                            error: function(data) {
+                                alert('Error');
+                                $.LoadingOverlay("hide");
+
+                            },
+                        });
+                        break;
+                    case '3':
+                        var data = {
+                            nomorkartu: nomorkartu,
+                            tanggal: tanggal,
+                        };
+                        // var url = "http://103.158.96.141/siramah/api/cekSuratKontrolPeserta" + data;
+                        // alert(url);
+                        // $.LoadingOverlay("hide");
+                        $.ajax({
+                            url: "http://103.158.96.141/siramah/api/cekSuratKontrolPeserta",
+                            data: {
+                                nomorkartu: nomorkartu,
+                                tanggal: tanggal,
+                            },
+                            type: "GET",
+                            dataType: 'json',
+                            success: function(data) {
+                                if (data.metadata.code == 200) {
+                                    var suratkontrols = data.response;
+                                    suratkontrols.forEach(element => {
+                                        $('#nomorreferensi').append('<option value="' +
+                                            element.noSuratKontrol +
+                                            '" data-kodepoli="' + element
+                                            .poliTujuan + '" >' + element
+                                            .noSuratKontrol + ' POLI ' +
+                                            element.namaPoliTujuan + '</option>');
                                     });
                                     $(".formNomorReferensi").show();
                                     $(".cekNomorReferensi").hide();

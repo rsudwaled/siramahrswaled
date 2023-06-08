@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/daftar', [AntrianController::class, 'daftar'])->name('daftar');
 Route::get('/check_antrian', [AntrianController::class, 'check_antrian'])->name('check_antrian');

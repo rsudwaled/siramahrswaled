@@ -1,5 +1,5 @@
 @extends('vendor.docmed.master')
-@section('title', 'SIRAMAH-RS Waled')
+@section('title', 'Check Antrian')
 
 @section('content')
     {{-- <div class="bradcam_area breadcam_bg bradcam_overlay">
@@ -27,50 +27,62 @@
             <div class="row justify-content-md-center">
                 <div class="col-xl-8 col-md-8 col-lg-8">
                     <div class="single_department">
-                        <div class="department_content">
-                            <label for="kodebooking">
-                                <b>Kode Boking</b>
-                            </label>
-                            <div class="input-group mb-3">
-                                <input type="text" name="kodebooking" id="kodebooking" placeholder="Kode Booking Antrian"
-                                    required class="form-control">
-                                <div class="input-group-append">
-                                    <button href="#" class="genric-btn primary cekKodebooking"><i
-                                            class="ti-search"></i> Cek</button>
+                        <form action="" method="GET">
+                            <div class="department_content">
+                                <label for="kodebooking">
+                                    <b>Kode Boking</b>
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" name="kodebooking" id="kodebooking"
+                                        value="{{ $request->kodebooking }}" placeholder="Kode Booking Antrian" required
+                                        class="form-control">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="genric-btn primary cekKodebooking"><i
+                                                class="ti-search"></i> Cek</button>
+                                    </div>
                                 </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @if ($antrian)
+                    <div class="col-xl-8 col-md-8 col-lg-8 formAntrian">
+                        <div class="single_department">
+
+                            <div class="department_content">
+                                <h3>Status Antrian</h3>
+                                <br>
+                                <div class="alert alert-success" role="alert">
+                                    Silahkan screenshot QR Code dibawah ini untuk memudahkan saat checkin.
+                                </div>
+                                {!! QrCode::size(250)->generate(Request::url()) !!}
+                                <br>
+                                <dl class="row">
+                                    <dt class="col-sm-3">Kode Booking</dt>
+                                    <dd class="col-sm-9 kodebooking">{{ $antrian->kodebooking }}</dd>
+                                    <dt class="col-sm-3">Antrian</dt>
+                                    <dd class="col-sm-9 antrian">{{ $antrian->angkaantrean }} / {{ $antrian->nomorantrean }}
+                                    </dd>
+                                    <dt class="col-sm-3">Pasien</dt>
+                                    <dd class="col-sm-9 pasien">{{ $antrian->namapasien }}</dd>
+                                    <dt class="col-sm-3">No RM</dt>
+                                    <dd class="col-sm-9 norm">{{ $antrian->norm }}</dd>
+                                    <dt class="col-sm-3">Poliklinik</dt>
+                                    <dd class="col-sm-9 poliklinik">{{ $antrian->namapoli }}</dd>
+                                    <dt class="col-sm-3">Dokter</dt>
+                                    <dd class="col-sm-9 dokter">{{ $antrian->namadokter }}</dd>
+                                    <dt class="col-sm-3">Status</dt>
+                                    <dd class="col-sm-9 status">{{ $antrian->status }}</dd>
+                                    <dt class="col-sm-3">Keterangan</dt>
+                                    <dd class="col-sm-9 keterangan">{{ $antrian->keterangan }}</dd>
+                                </dl>
+                                <div  class="genric-btn danger btnBatal">Batal Antrian</div>
+                                {{-- <div class="genric-btn warning circle cekJadwalPoli"><i class="ti-search"></i> Cek Jadwal</div> --}}
+
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-8 col-md-8 col-lg-8 formAntrian">
-                    <div class="single_department">
-                        {{-- <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div> --}}
-                        <div class="department_content">
-                            <h3>Status Antrian</h3>
-                            <br>
-                            <dl class="row">
-                                <dt class="col-sm-3">Kode Booking</dt>
-                                <dd class="col-sm-9 kodebooking"></dd>
-                                <dt class="col-sm-3">Antrian</dt>
-                                <dd class="col-sm-9 antrian"></dd>
-                                <dt class="col-sm-3">Pasien</dt>
-                                <dd class="col-sm-9 pasien"></dd>
-                                <dt class="col-sm-3">No RM</dt>
-                                <dd class="col-sm-9 norm"></dd>
-                                <dt class="col-sm-3">Poliklinik</dt>
-                                <dd class="col-sm-9 poliklinik"></dd>
-                                <dt class="col-sm-3">Dokter</dt>
-                                <dd class="col-sm-9 dokter"></dd>
-                                <dt class="col-sm-3">Status</dt>
-                                <dd class="col-sm-9 status"></dd>
-                                <dt class="col-sm-3">Keterangan</dt>
-                                <dd class="col-sm-9 keterangan"></dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -130,71 +142,30 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
     <script>
         $(function() {
-            $(".formAntrian").hide();
             $(".cekKodebooking").on("click", function() {
                 $.LoadingOverlay("show");
-                $(".formAntrian").hide();
-                var kodebooking = $('#kodebooking').val();
-                var url = "http://103.158.96.141/siramah/api/cekKodebooking?kodebooking=" + kodebooking;
-                $.ajax({
-                    url: url,
-                    type: "GET",
-                    dataType: 'json',
-                    success: function(data) {
-                        console.log(data);
-                        if (data.metadata.code == 200) {
-                            var antrian = data.response;
-                            $(".formAntrian").show();
-                            $(".kodebooking").html(antrian.kodebooking);
-                            $(".antrian").html(antrian.angkaantrean + ' / ' + antrian
-                                .nomorantrean);
-                            $(".pasien").html(antrian.namapasien);
-                            $(".status").html(antrian.status);
-                            $(".norm").html(antrian.norm);
-                            $(".poliklinik").html(antrian.namapoli);
-                            $(".dokter").html(antrian.namadokter);
-                            $(".keterangan").html(antrian.keterangan);
-                            Swal.fire({
-                                title: 'Berhasil',
-                                text: 'Kodebooking berhasil ditemukan ' + antrian
-                                    .kodebooking,
-                                icon: 'success',
-                                confirmButtonText: 'Ok'
-                            });
-                        } else {
-                            Swal.fire({
-                                title: 'Maaf',
-                                text: data.metadata.message,
-                                icon: 'error',
-                                confirmButtonText: 'Tutup'
-                            });
-                        }
-                        $.LoadingOverlay("hide");
+            });
+            $(".btnBatal").on("click", function() {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            });
 
-                    },
-                    error: function(data) {
-                        console.log(data);
-                        alert('Error');
-                        $.LoadingOverlay("hide");
-                    },
-                });
-            });
-            $("#jenispasien").on("change", function() {
-                var jenispasien = $(this).val();
-                if (jenispasien == 'JKN') {
-                    $(".formPoliklinik").hide()
-                    $(".formTanggalPeriksa").show()
-                    $(".formJenisKunjungan").show();
-                    $(".cekJadwalPoli").hide();
-                    $(".cekNomorReferensi").show();
-                } else {
-                    $(".formPoliklinik").show()
-                    $(".formTanggalPeriksa").show()
-                    $(".formJenisKunjungan").hide();
-                    $(".cekJadwalPoli").show();
-                    $(".cekNomorReferensi").hide();
-                }
-            });
+
         });
     </script>
 @endsection
