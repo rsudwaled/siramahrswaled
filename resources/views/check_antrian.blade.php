@@ -76,7 +76,7 @@
                                     <dt class="col-sm-3">Keterangan</dt>
                                     <dd class="col-sm-9 keterangan">{{ $antrian->keterangan }}</dd>
                                 </dl>
-                                <div  class="genric-btn danger btnBatal">Batal Antrian</div>
+                                <div class="genric-btn danger btnBatal">Batal Antrian</div>
                                 {{-- <div class="genric-btn warning circle cekJadwalPoli"><i class="ti-search"></i> Cek Jadwal</div> --}}
 
                             </div>
@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-    <div class="whole-wrap">
+    {{-- <div class="whole-wrap">
         <div class="container box_1170">
             <div class="section-top-border">
                 <h3 class="mb-30">Daftar Antrian</h3>
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('css')
@@ -146,21 +146,125 @@
                 $.LoadingOverlay("show");
             });
             $(".btnBatal").on("click", function() {
+                // Swal.fire({
+                //     title: 'Apakah anda yakin ?',
+                //     text: "Anda akan membatalkan antrian ?",
+                //     icon: 'warning',
+                //     showCancelButton: true,
+                //     confirmButtonColor: '#3085d6',
+                //     cancelButtonColor: '#d33',
+                //     confirmButtonText: 'Yes, delete it!'
+                // }).then((result) => {
+                //     if (result.isConfirmed) {
+                //         $.ajax({
+                //             url: url,
+                //             data: data,
+                //             type: "GET",
+                //             dataType: 'json',
+                //             success: function(data) {
+                //                 if (data.metadata.code == 200) {
+                //                     Swal.fire({
+                //                         title: 'Success',
+                //                         text: 'Berhasil booking pendaftaran online',
+                //                         icon: 'success',
+                //                         confirmButtonText: 'Ok'
+                //                     }).then((result) => {
+                //                         window.location.href =
+                //                             "{{ route('check_antrian') }}" +
+                //                             "?kodebooking=" +
+                //                             data
+                //                             .response.kodebooking;
+                //                     })
+                //                 } else if (data.metadata.code == 409) {
+                //                     Swal.fire({
+                //                         title: 'Maaf',
+                //                         text: data.metadata.message,
+                //                         icon: 'error',
+                //                         confirmButtonText: 'Tutup'
+                //                     });
+                //                 } else {
+                //                     Swal.fire({
+                //                         title: 'Maaf',
+                //                         text: data.metadata.message,
+                //                         icon: 'error',
+                //                         confirmButtonText: 'Tutup'
+                //                     });
+                //                 }
+                //                 $.LoadingOverlay("hide");
+                //             },
+                //             error: function(data) {
+                //                 alert('Error');
+                //                 $.LoadingOverlay("hide");
+                //             },
+                //         });
+                //         Swal.fire(
+                //             'Deleted!',
+                //             'Your file has been deleted.',
+                //             'success'
+                //         )
+                //     }
+                // })
+
+
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
+                    title: 'Apa alasan anda ingin membatalkan antrian ?',
+                    input: 'text',
+                    inputAttributes: {
+                        autocapitalize: 'off'
+                    },
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Ya, Batalkan Antrian',
+                    showLoaderOnConfirm: true,
+                    preConfirm: (keterangan) => {
+                        var keterangan = keterangan;
+                        var kodebooking = $('#kodebooking').val();
+                        return {
+                            keterangan: keterangan,
+                            kodebooking: kodebooking,
+                        }
+                    },
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
+                        $.LoadingOverlay("show");
+                        var kodebooking = result.value.kodebooking;
+                        var keterangan = result.value.keterangan;
+                        $.ajax({
+                            url: "{{ route('batal_antrian') }}",
+                            data: {
+                                kodebooking: kodebooking,
+                                keterangan: keterangan,
+                            },
+                            type: "GET",
+                            dataType: 'json',
+                            success: function(data) {
+                                if (data.metadata.code == 200) {
+                                    Swal.fire({
+                                        title: 'Success',
+                                        text: data.metadata.message,
+                                        icon: 'success',
+                                        confirmButtonText: 'Ok'
+                                    }).then((result) => {
+                                        $.LoadingOverlay("show");
+                                        window.location.href =
+                                            "{{ route('check_antrian') }}" +
+                                            "?kodebooking=" +
+                                            kodebooking;
+                                    })
+                                } else {
+                                    Swal.fire({
+                                        title: 'Maaf',
+                                        text: data.metadata.message,
+                                        icon: 'error',
+                                        confirmButtonText: 'Tutup'
+                                    });
+                                }
+                                $.LoadingOverlay("hide");
+                            },
+                            error: function(data) {
+                                alert('Error');
+                                $.LoadingOverlay("hide");
+                            },
+                        });
                     }
                 })
             });

@@ -6,8 +6,14 @@
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="#">
-                                    <img src="{{ asset('docmed/img/footer_logo.png') }}" alt="">
+
+                                <a href="{{ route('welcome') }}">
+                                    <div class="row align-items-center">
+                                        <img style="max-height: 50px;" src="{{ asset('rsudwaled/rswaledico.png') }}"
+                                            alt="">
+                                        <h1 class="ml-3" style="font-weight: 1000; color: white;">RSUD Waled</h1>
+                                    </div>
+                                    {{-- <img style="max-width: 75px" src="{{ asset('rsudwaled/rswaledico.png') }}" alt=""> --}}
                                 </a>
                             </div>
                             <p>
@@ -17,18 +23,13 @@
                             <div class="socail_links">
                                 <ul>
                                     <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
+                                        <a target="_blank" href="https://www.instagram.com/brsudwaled/">
                                             <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://www.youtube.com/@rsudwaledkab.cirebon2139">
+                                            <i class="ti-youtube"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -42,10 +43,8 @@
                                 Departments
                             </h3>
                             <ul>
-                                <li><a href="#">Eye Care</a></li>
-                                <li><a href="#">Skin Care</a></li>
-                                <li><a href="#">Pathology</a></li>
-                                <li><a href="#">Medicine</a></li>
+                                <li><a href="{{ route('daftar') }}">Daftar Rawat Jalan</a></li>
+                                <li><a href="{{ route('check_antrian') }}">Check Antrian</a></li>
                                 <li><a href="#">Dental</a></li>
                             </ul>
 
@@ -57,11 +56,8 @@
                                 Useful Links
                             </h3>
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> Contact</a></li>
-                                <li><a href="#"> Appointment</a></li>
+                                <li><a href="{{ route('daftar') }}">Daftar Rawat Jalan</a></li>
+                                <li><a href="{{ route('check_antrian') }}">Check Antrian</a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,9 +87,9 @@
                             Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i
-                                class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                target="_blank">Colorlib</a>
+                            </script> All rights reserved | SIRMAH RSUD Waled <i
+                                class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.youtube.com/@marwandhiaurrahman"
+                                target="_blank">IT RSUD Waled</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>

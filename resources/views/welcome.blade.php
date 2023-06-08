@@ -10,8 +10,8 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text ">
-                                <h3> <span>Health care</span> <br>
-                                    For Hole Family </h3>
+                                <h3> <span>Daftar Rawat Jalan</span> <br>
+                                    RSUD Waled </h3>
                                 <p>In healthcare sector, service excellence is the facility of <br> the hospital as
                                     healthcare service provider to consistently.</p>
                                 <a href="{{ route('daftar') }}" class="boxed-btn3">Daftar</a>
@@ -25,12 +25,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text ">
-                                <h3> <span>Health care</span> <br>
-                                    For Hole Family </h3>
+                                <h3> <span>Check Antrian</span> <br>
+                                    RSUD Waled </h3>
                                 <p>In healthcare sector, service excellence is the facility of <br> the hospital as
                                     healthcare service provider to consistently.</p>
-                                <a href="{{ route('daftar') }}" class="boxed-btn3">Daftar</a>
-
+                                <a href="{{ route('check_antrian') }}" class="boxed-btn3">Check Antrian</a>
                             </div>
                         </div>
                     </div>
@@ -41,8 +40,8 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text ">
-                                <h3> <span>Health care</span> <br>
-                                    For Hole Family </h3>
+                                <h3> <span>Surat Kontrol Online</span> <br>
+                                    RSUD Waled</h3>
                                 <p>In healthcare sector, service excellence is the facility of <br> the hospital as
                                     healthcare service provider to consistently.</p>
                                 <a href="#" class="boxed-btn3">Check Our Services</a>

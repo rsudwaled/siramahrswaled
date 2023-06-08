@@ -121,6 +121,7 @@
                                         <option selected disabled>Pilih Jadwal Dokter</option>
                                     </select>
                                 </div>
+                                <input type="hidden" name="jampraktek" id="jampraktek">
                             </div>
                         </div>
                         <div class="form-group mt-2 mb-5">
@@ -191,7 +192,7 @@
             $(".cekPasien").on("click", function() {
                 $.LoadingOverlay("show");
                 var nik = $('#nik').val();
-                var url = "http://103.158.96.141/siramah/api/cekPasien?nik=" + nik;
+                var url = "{{ route('cari_pasien') }}" + "?search=" + nik;
                 $.ajax({
                     url: url,
                     type: "GET",
@@ -207,7 +208,7 @@
                             $("#namapasien").val(pasien.nama_px);
                             // $("#nohp").val(pasien.no_hp);
                             $("#nik").prop("readonly", true);
-                            var url = "http://sim.rsudwaled.id/siramah/api/poliklinik_aktif";
+                            var url = "{{ route('poliklinik_aktif') }}";
                             $.ajax({
                                 url: url,
                                 type: "GET",
@@ -276,6 +277,7 @@
                     $(".formJenisKunjungan").hide();
                     $(".cekJadwalPoli").show();
                     $(".cekNomorReferensi").hide();
+                    $("#jeniskunjungan").val(3).change();
                 }
             });
             // umum
@@ -283,7 +285,7 @@
                 $.LoadingOverlay("show");
                 var kodepoli = $('#kodepoli').val();
                 var tanggal = $('#tanggalperiksa').val();
-                var url = "http://103.158.96.141/siramah/api/cekJadwalPoli";
+                var url = "{{ route('cari_jadwal_dokter') }}";
                 var data = {
                     kodepoli: kodepoli,
                     tanggal: tanggal,
@@ -299,13 +301,17 @@
                     success: function(data) {
                         if (data.metadata.code == 200) {
                             var jadwal = data.response;
+                            console.log(jadwal);
                             $(".formDokter").show();
                             $(".btnDaftar").show();
                             jadwal.forEach(element => {
-                                $('#kodedokter').append($('<option>', {
-                                    value: element.kodedokter,
-                                    text: element.namadokter
-                                }));
+                                $('#kodedokter').append('<option value="' +
+                                    element.kodedokter +
+                                    '" data-jampraktek="' + element
+                                    .jadwal + '" >' + element
+                                    .jadwal + ' ' + element
+                                    .namadokter + '</option>');
+
                             });
                             Swal.fire({
                                 title: 'Success',
@@ -331,6 +337,10 @@
                     },
                 });
             });
+            $("#kodedokter").change(function() {
+                var jampraktek = $(this).find(':selected').attr('data-jampraktek');
+                $("#jampraktek").val(jampraktek);
+            });
             // jkn
             $(".cekNomorReferensi").on("click", function() {
                 $.LoadingOverlay("show");
@@ -344,7 +354,7 @@
                             tanggal: tanggal,
                         };
                         $.ajax({
-                            url: "http://103.158.96.141/siramah/api/cekRujukanPeserta",
+                            url: "{{ route('rujukan_peserta') }}",
                             data: {
                                 nomorkartu: nomorkartu,
                                 tanggal: tanggal,
@@ -386,11 +396,8 @@
                             nomorkartu: nomorkartu,
                             tanggal: tanggal,
                         };
-                        // var url = "http://103.158.96.141/siramah/api/cekSuratKontrolPeserta" + data;
-                        // alert(url);
-                        // $.LoadingOverlay("hide");
                         $.ajax({
-                            url: "http://103.158.96.141/siramah/api/cekSuratKontrolPeserta",
+                            url: "{{ route('suratkontrol_peserta') }}",
                             data: {
                                 nomorkartu: nomorkartu,
                                 tanggal: tanggal,
@@ -433,7 +440,7 @@
                             tanggal: tanggal,
                         };
                         $.ajax({
-                            url: "http://103.158.96.141/siramah/api/cekRujukanRSPeserta",
+                            url: "{{ route('rujukan_rs_peserta') }}",
                             data: {
                                 nomorkartu: nomorkartu,
                                 tanggal: tanggal,
@@ -484,14 +491,16 @@
             });
             $(".btnDaftar").on("click", function() {
                 $.LoadingOverlay("show");
-                var url = "http://103.158.96.141/siramah/api/ambilAntrianWeb";
+                var url = "{{ route('ambil_antrian') }}";
                 var data = $('#formDaftarWeb').serialize();
+                var urlData = url + '?' + data;
                 $.ajax({
                     url: url,
                     data: data,
                     type: "GET",
                     dataType: 'json',
                     success: function(data) {
+                        console.log(data);
                         if (data.metadata.code == 200) {
                             Swal.fire({
                                 title: 'Success',
@@ -500,7 +509,7 @@
                                 confirmButtonText: 'Ok'
                             }).then((result) => {
                                 window.location.href =
-                                    "http://103.158.96.141/siramah/api/checkAntrian?kodebooking=" +
+                                    "{{ route('check_antrian') }}" + "?kodebooking=" +
                                     data
                                     .response.kodebooking;
                             })
@@ -522,6 +531,7 @@
                         $.LoadingOverlay("hide");
                     },
                     error: function(data) {
+                        console.log(data);
                         alert('Error');
                         $.LoadingOverlay("hide");
                     },
