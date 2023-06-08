@@ -10,7 +10,13 @@
     <meta name="description" content="SIRAMAH-RS Waled adalah aplikasi layanan web service untuk memudahkan informasi bagi pasien dan pendaftaran antrian melalui online">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="RSUD Waled, RS Waled, Daftar RS, Daftar RSUD Waled, Daftar Online">
-
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RSUD Waled Kabupaten Cirebon">
+    <meta property="og:description" content="RSUD Waled adalah rumah sakit umum daerah milik Pemerintah dan merupakan salah satu rumah sakit tipe B yang terletak di wilayah Cirebon">
+    <meta property="og:url" content="https://siramah.rsudwaled.id/">
+    <meta property="og:image" content="https://siramah.rsudwaled.id/rsudwaled/rswaledico.png">
+    <meta property="og:site_name" content="RSUD Waled">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('rsudwaled/rswaledico.png') }}">
     <!-- Place favicon.ico in the root directory -->
