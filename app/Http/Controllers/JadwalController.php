@@ -3,22 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class AntrianController extends Controller
+class JadwalController extends Controller
 {
-    public function daftar(Request $request)
-    {
-
-        // $res = Http::get($url);
-        // $polikliniks = json_decode($res->body())->response ;
-        return view('daftar', compact(['request']));
-    }
-    public function check_antrian(Request $request)
+    public function jadwal_rawat_jalan(Request $request)
     {
         $antrian = null;
-
         if ($request->kodebooking) {
             $url = "http://103.158.96.141/siramah/api/cekKodebooking?kodebooking=" . $request->kodebooking;
             $res = Http::get($url);
@@ -36,4 +26,5 @@ class AntrianController extends Controller
         }
         return view('check_antrian', compact(['request', 'antrian']));
     }
+
 }

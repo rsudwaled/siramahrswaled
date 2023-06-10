@@ -22,8 +22,8 @@
                                         <li><a href="{{ route('welcome') }}">home</a></li>
                                         <li><a href="#">Jadwal <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="elements.html">Jadwal Rawat Jalan</a></li>
-                                                <li><a href="about.html">Jadwal Operasi</a></li>
+                                                <li><a href="{{ route('jadwal_rawat_jalan') }}">Jadwal Rawat Jalan</a></li>
+                                                <li><a href="{{ route('jadwal_operasi') }}">Jadwal Operasi</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Antrian <i class="ti-angle-down"></i></a>

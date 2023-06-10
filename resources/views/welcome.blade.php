@@ -5,7 +5,8 @@
     <!-- slider_area_start -->
     <div class="slider_area">
         <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_2">
+            <div class="single_slider  d-flex align-items-center"
+                style="background-image: linear-gradient(45deg, #f1fdfd, rgba(223, 251, 255, 0.685)), url({{ asset('rsudwaled/img/rsudwaled-depan.jpg') }});">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -19,7 +20,8 @@
                     </div>
                 </div>
             </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_1">
+            <div class="single_slider  d-flex align-items-center"
+                style="background-image: linear-gradient(45deg, #f1fdfd, rgba(223, 251, 255, 0.685)), url({{ asset('rsudwaled/img/rswaled-igd.jpg') }});">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -37,7 +39,8 @@
                     </div>
                 </div>
             </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2">
+            <div class="single_slider  d-flex align-items-center "
+                style="background-image: linear-gradient(45deg, #f1fdfd, rgba(223, 251, 255, 0.685)), url({{ asset('rsudwaled/img/rsudwaled-depan.jpg') }});">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -79,7 +82,7 @@
                         </div>
                         <h3>IGD 24 Jam</h3>
                         <p>Layanan Instalasi Gawat Darurat siap sedia 24 jam</p>
-                        <a href="#" class="boxed-btn3-white">+10 672 356 3567</a>
+                        <a href="tel:0231661275" class="boxed-btn3-white">0231 661275</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-4">
@@ -105,38 +108,41 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome_thumb">
-                        <div class="thumb_1">
-                            <img src="{{ asset('docmed/img/about/1.png') }}" alt="">
+                        {{-- <iframe width="560" height="315" src="https://www.youtube.com/watch?v=oRj04KcUmuU"
+                            ></iframe> --}}
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8IZ9yfJq_vk"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                        {{-- <div class="thumb_1">
+                            <img src="{{ asset('rsudwaled/img/rswaled-igd.jpg') }}" alt="">
                         </div>
                         <div class="thumb_2">
-                            <img src="{{ asset('docmed/img/about/2.png') }}" alt="">
-                        </div>
+                            <img src="{{ asset('rsudwaled/img/rsudwaled-depan.jpg') }}" alt="">
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome_docmed_info">
-                        <h2>Welcome to Docmed</h2>
-                        <h3>Best Care For Your <br>
-                            Good Health</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem.
-                            It esteems luckily or picture placing drawing. Apartments frequently or motionless on
-                            reasonable projecting expression.</p>
+                        <h2>Selamat Datang di RSUD Waled</h2>
+                        <h3>Melayani Dengan Sepenuh Hati</h3>
+                        <p>RSUD Waled adalah rumah sakit umum daerah milik Pemerintah dan merupakan salah satu rumah sakit
+                            tipe B yang terletak di wilayah Cirebon</p>
                         <ul>
-                            <li> <i class="flaticon-right"></i> Apartments frequently or motionless. </li>
-                            <li> <i class="flaticon-right"></i> Duis aute irure dolor in reprehenderit in voluptate.
-                            </li>
-                            <li> <i class="flaticon-right"></i> Voluptatem quia voluptas sit aspernatur. </li>
+                            <li> <i class="flaticon-right"></i> IGD 24 Jam </li>
+                            <li> <i class="flaticon-right"></i> Poliklinik Rawat Jalan & Pelayanan Rawat Inap</li>
+                            <li> <i class="flaticon-right"></i> Laboratorium & Radiologi</li>
+                            <li> <i class="flaticon-right"></i> Instalasi Penunjang Lainnya</li>
                         </ul>
-                        <a href="#" class="boxed-btn3-white-2">Learn More</a>
+                        {{-- <a href="#" class="boxed-btn3-white-2">Learn More</a> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- welcome_docmed_area_end -->
 
-    <!-- offers_area_start -->
-    <div class="our_department_area">
+    {{-- <div class="our_department_area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -223,9 +229,7 @@
             </div>
         </div>
     </div>
-    <!-- offers_area_end -->
 
-    <!-- testmonial_area_start -->
     <div class="testmonial_area">
         <div class="testmonial_active owl-carousel">
             <div class="single-testmonial testmonial_bg_1 overlay2">
@@ -293,9 +297,7 @@
             </div>
         </div>
     </div>
-    <!-- testmonial_area_end -->
 
-    <!-- business_expert_area_start  -->
     <div class="business_expert_area">
         <div class="business_tabs_area">
             <div class="container">
@@ -395,11 +397,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- business_expert_area_end  -->
+    </div> --}}
 
-    <!-- expert_doctors_area_start -->
-    <div class="expert_doctors_area">
+    {{-- <div class="expert_doctors_area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -469,39 +469,70 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- expert_doctors_area_end -->
-
-    <!-- Emergency_contact start -->
-    <div class="Emergency_contact">
-        <div class="conatiner-fluid p-0">
-            <div class="row no-gutters">
-                <div class="col-xl-6">
-                    <div
-                        class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
-                        <div class="info">
-                            <h3>Kontak Layanan IGD</h3>
-                            <p>Silahkan hubungi kami.</p>
+    </div> --}}
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">Alamat dan Kontak</h2>
+                </div>
+                <div class="col-lg-8 mb-3">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.250118982125!2d108.7185692!3d-6.9130052!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f08ce7d8c2081%3A0xd5151423db71bc02!2sRSUD%20Waled%20Cirebon!5e0!3m2!1sid!2sid!4v1686207703560!5m2!1sid!2sid"
+                        width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {{-- <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Name"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                </div>
+                            </div>
                         </div>
-                        <div class="info_button">
-                            <a href="#" class="boxed-btn3-white">+10 378 4673 467</a>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                        </div>
+                    </form> --}}
+                </div>
+                <div class="col-md-3 offset-lg-1">
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                            <h3>RSUD Waled Kab. Cirebon</h3>
+                            <p>Jl. Prabu Kiansantang No.4, Kec. Waled, Kab. Cirebon, Jawa Barat 45187</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-6">
-                    <div
-                        class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
-                        <div class="info">
-                            <h3>Daftar Online</h3>
-                            <p>Layanan daftar online rawat jalan.</p>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                            <h3>0898-3311-118</h3>
+                            <p>Humas RSUD Waled</p>
                         </div>
-                        <div class="info_button">
-                            <a href="#" class="boxed-btn3-white">Daftar</a>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                            <h3>brsud.waled@gmail.com</h3>
+                            <p>Email RSUD Waled</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Emergency_contact end -->
+    </section>
 @endsection
