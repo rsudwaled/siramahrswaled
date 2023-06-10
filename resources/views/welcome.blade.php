@@ -2,7 +2,6 @@
 @section('title', 'SIRAMAH-RS Waled')
 
 @section('content')
-    <!-- slider_area_start -->
     <div class="slider_area">
         <div class="slider_active owl-carousel">
             <div class="single_slider  d-flex align-items-center"
@@ -60,7 +59,6 @@
             </div>
         </div>
     </div>
-    <!-- slider_area_end -->
     <!-- service_area_start -->
     <div class="service_area">
         <div class="container p-0">
