@@ -25,7 +25,6 @@ class AntrianController extends Controller
             if ($res->successful()) {
                 $res = json_decode($res->body());
                 $message = $res->metadata->message;
-
                 if ($res->metadata->code == 200) {
                     $antrian = $res->response;
                     Alert::success('Success','Kodebooking berhasil ditemukan');

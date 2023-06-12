@@ -121,6 +121,7 @@
                                     </select>
                                 </div>
                                 <input type="hidden" name="jampraktek" id="jampraktek">
+                                <input type="hidden" name="method" value="Web">
                             </div>
                         </div>
                         <div class="form-group mt-2 mb-5">

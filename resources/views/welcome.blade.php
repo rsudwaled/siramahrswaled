@@ -109,7 +109,7 @@
                         {{-- <iframe width="560" height="315" src="https://www.youtube.com/watch?v=oRj04KcUmuU"
                             ></iframe> --}}
 
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8IZ9yfJq_vk"
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/8IZ9yfJq_vk"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
@@ -477,7 +477,7 @@
                 <div class="col-lg-8 mb-3">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.250118982125!2d108.7185692!3d-6.9130052!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f08ce7d8c2081%3A0xd5151423db71bc02!2sRSUD%20Waled%20Cirebon!5e0!3m2!1sid!2sid!4v1686207703560!5m2!1sid!2sid"
-                        width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                     {{-- <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                         <div class="row">
