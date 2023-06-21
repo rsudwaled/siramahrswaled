@@ -93,8 +93,6 @@
                         <a href="#" class="boxed-btn3-white">Jadwal Rawat Jalan</a>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

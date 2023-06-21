@@ -44,11 +44,12 @@
                         <div class="row align-items-center">
                             <div class="col-xl-12 col-md-12">
                                 <div class="business_info">
-                                    <div class="icon">
-                                        <i class="flaticon-first-aid-kit"></i>
-                                    </div>
+
                                     @if ($jadwals)
-                                        <h3>Jadwal Poliklinik Senin</h3>
+                                        <div class="icon">
+                                            <i class="flaticon-first-aid-kit"></i>
+                                        </div>
+                                        <h3>Jadwal Poliklinik</h3>
                                         <p>
                                             Jadwal libur mengikuti kalender nasional dan jadwal dokter dapat berubah
                                             sewaktu-waktu sesuai kondisi.

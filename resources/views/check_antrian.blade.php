@@ -55,7 +55,7 @@
                                 <div class="alert alert-success" role="alert">
                                     Silahkan screenshot QR Code dibawah ini untuk memudahkan saat checkin.
                                 </div>
-                                {!! QrCode::size(250)->generate(Request::url()) !!}
+                                {!! QrCode::size(250)->generate($antrian->kodebooking) !!}
                                 <br>
                                 <dl class="row">
                                     <dt class="col-sm-3">Kode Booking</dt>
