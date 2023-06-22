@@ -531,4 +531,12 @@
             </div>
         </div>
     </section>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4844580717257089"
+        crossorigin="anonymous"></script>
+    <!-- iklan dirs waled -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4844580717257089" data-ad-slot="9653112552"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 @endsection
